@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH -N 1
+#SBATCH -t 10:00:00
+#SBATCH -p GPU-shared
+#SBATCH --gpus=2 
+#SBATCH --mail-type=ALL 
+
+module purge
+module load AI/anaconda3-tf1.2020.11
+source activate $AI_ENV
+conda activate --stack secondTry 
+
+cd /ocean/projects/cis220010p/asatish/ssd_head_keras
+python3 compute_coordinates.py
