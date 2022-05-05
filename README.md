@@ -2,7 +2,7 @@ SSD-based head detector
 ======
 
 <div align="center">
-    <img src="./examples/sample_detections.jpg" alt="Image showing head detections" height="302" width="404">
+    <img src="Results/boundedargo_01152.png">
 </div>
 
 By Anirudh Satish, an extension of the work done by Pablo Medina-Suarez and Manuel J. Marin-Jimenez.
