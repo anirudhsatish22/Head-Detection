@@ -7,7 +7,7 @@ SSD-based head detector
 
 By Anirudh Satish, an extension of the work done by Pablo Medina-Suarez and Manuel J. Marin-Jimenez.
 
-
+The following instructions for setting up the model follow directly from the Author's instructions. However, some parts of it are deprecated, and therefore I have included instructions that work as of May 2022. I have marked such sections with the tag <Addition:>
 
 
 This repository contains and showcases a head detector model for people detection in images. This model is based on 
@@ -58,6 +58,7 @@ In the `data` folder you can find a script that will download the model for you,
 # Run the script
     ./download_model_py3.Y.sh
 ```
+
 
 
 ### How to use the model
