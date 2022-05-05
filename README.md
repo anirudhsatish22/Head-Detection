@@ -5,7 +5,9 @@ SSD-based head detector
     <img src="./examples/sample_detections.jpg" alt="Image showing head detections" height="302" width="404">
 </div>
 
-By Pablo Medina-Suarez and Manuel J. Marin-Jimenez.
+By Anirudh Satish, an extension of the work done by Pablo Medina-Suarez and Manuel J. Marin-Jimenez.
+
+
 
 
 This repository contains and showcases a head detector model for people detection in images. This model is based on 
