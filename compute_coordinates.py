@@ -9,6 +9,7 @@ from keras.preprocessing import image
 from keras.optimizers import Adam
 import numpy as np
 from matplotlib import pyplot as plt
+import argparse
 
 from models.keras_ssd512 import ssd_512
 from keras_loss_function.keras_ssd_loss import SSDLoss
@@ -124,12 +125,42 @@ def helper(full_path, picture, clip, outputWriter):
 
 
 def compute_frames_for_all(root_directory, model):
-    list_of_movies1 = ['amadeus', 'argo', 'birdman', 'chicago', 'departed', 'emperor', 'kings', 'gladiator']
-    list_of_movies2 = ['no_country_clip1','no_country_clip2', 'saving', 'shakespeare_clip1', 'shakespeare_clip2', 'slumdog', 'unforgiven']
-    for movie in list_of_movies2:
+    list_of_movies = ['amadeus', 'argo', 'birdman', 'chicago', 'departed', 'emperor', 'kings', 'gladiator', \
+        'no_country_clip1','no_country_clip2', 'saving', 'shakespeare_clip1', 'shakespeare_clip2', 'slumdog', 'unforgiven'] 
+    for movie in list_of_movies:
         print(f"running on movie {movie}")
         directory = root_directory+ movie
         find_boxes(directory, model)
 
-root_directory = '/ocean/projects/cis220010p/shared/frames/'
-compute_frames_for_all(root_directory, model)
+# root_directory = '/ocean/projects/cis220010p/shared/frames/'
+# compute_frames_for_all(root_directory, model)
+
+def main(args):
+    if (args.one_clip):    
+        find_boxes(args.directory, model)
+    elif (args.all_clips):
+        compute_frames_for_all(args.directory, model)
+    else:
+        print(f"Please enter the required command line arguments")
+
+    # If you just want to quickly test code, feel free to comment out the arg parser and use the following function calls
+    # With different paths as suited to you. 
+
+    # root_directory = '/ocean/projects/cis220010p/shared/frames/argo'
+    # find_boxes(root_directory, model) 
+
+    # or
+    # root_directory = '/ocean/projects/cis220010p/shared/frames/argo'
+    # compute_frames_for_all(root_directory, model)
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+
+    one_or_all = parser.add_mutually_exclusive_group(required=True)
+    one_or_all.add_argument("--one_clip", action="store_true")
+    one_or_all.add_argument("--all_clips", action="store_true")
+
+    parser.add_argument("--directory", help="Directory name. Depends on previous mutually exclusive arguemnts. \
+                            directory is either directory of all clips, or one clip")
+    args=parser.parse_args()
+    main(args)

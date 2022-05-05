@@ -1,5 +1,6 @@
 from platform import python_version
 from PIL import Image
+import argparse
 import subprocess
 import os
 
@@ -156,5 +157,36 @@ def compute_frames_for_all(root_directory, model):
         find_boxes(directory, model)
 
 
-root_directory = '/ocean/projects/cis220010p/shared/frames/'
-find_boxes(root_directory, model)
+
+def main(args):
+    if (args.one_clip):    
+        find_boxes(args.directory, model)
+    elif (args.all_clips):
+        compute_frames_for_all(args.directory, model)
+    else:
+        print(f"Please enter the required command line arguments")
+
+    # If you just want to quickly test code, feel free to comment out the arg parser and use the following function calls
+    # With different paths as suited to you. 
+
+    # root_directory = '/ocean/projects/cis220010p/shared/frames/argo'
+    # find_boxes(root_directory, model) 
+
+    # or
+    # root_directory = '/ocean/projects/cis220010p/shared/frames/argo'
+    # compute_frames_for_all(root_directory, model)
+
+
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+
+    one_or_all = parser.add_mutually_exclusive_group(required=True)
+    one_or_all.add_argument("--one_clip", action="store_true")
+    one_or_all.add_argument("--all_clips", action="store_true")
+
+    parser.add_argument("--directory", help="Directory name. Depends on previous mutually exclusive arguemnts. \
+                            directory is either directory of all clips, or one clip")
+    args=parser.parse_args()
+    main(args)
