@@ -2,7 +2,7 @@ SSD-based head detector
 ======
 
 <div align="center">
-    <img src="Results/boundedargo_01152.png">
+    <img src="Results/boundedargo_01152.png" >
 </div>
 
 By Anirudh Satish, an extension of the work done by Pablo Medina-Suarez and Manuel J. Marin-Jimenez.
@@ -145,8 +145,14 @@ If you wish to look at the performance of the authosr's implementation of the mo
 
 For performance on the Gaze Data provided by Prof. Breeden, HMC, refer to the preliminary quantitative results plot in the Results folder, obtained by runnning evaluate.py
 
-
 split_data.py was written to pre-process the labelled data for better evaluation!
+
+### Results
+---------
+
+Addition:
+To find the .csv files with the coordinates of the bounding boxes for every frame for each clip, refer to the OutputCsv directory. 
+You may sort the .csv file if you deem necessary. 
 
 
 Citation
@@ -162,13 +168,10 @@ Citation
 
 For further questions or queries regarding this implementation of ssd_head_keras, contact me at asatish@hmc.edu 
 
+Thank you!
+
 
 Acknowledgements
 ------
 Addition:
 I thank the authors of both the MatConvNet and Tensorflow implementation of SSD based models, Liu, Wei; Anguelov, Dragomir; Erhan, Dumitru; Szegedy, Christian; Reed, Scott; Fu, Cheng-Yang; Berg, Alexander C. , Pablo Medina-Suarez and Manuel J. Marin-Jimenez. This work is nothing but an extension, and repurposing of the model already created and trained by these authors. I thank MIT for the licensing for this model, and making it publicly available and useable.  
-
-I thank the authors of the images used in the demo code, which are licensed under a [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) license:
-- [people_drinking.jpg](./examples/people_drinking.jpg), by [Ross Broadstock](https://www.flickr.com/people/figurepainting/).
-- [rugby_players.jpg](./examples/rugby_players.jpg), by [jam_90s](https://www.flickr.com/people/zerospin/).
-- [fish_bike.jpg](./examples/fish_bike.jpg), [source](https://github.com/BVLC/caffe/blob/master/examples/images/fish-bike.jpg).

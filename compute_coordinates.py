@@ -121,8 +121,6 @@ def helper(full_path, picture, clip, outputWriter):
 
     outputWriter.writerow(newRow)
 
-    print(picture)
-
 
 def compute_frames_for_all(root_directory, model):
     list_of_movies = ['amadeus', 'argo', 'birdman', 'chicago', 'departed', 'emperor', 'kings', 'gladiator', \
