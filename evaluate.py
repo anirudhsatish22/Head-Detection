@@ -1,4 +1,6 @@
 import csv
+from itertools import tee
+from tabulate import tabulate
 
 def evaluate():
     '''this function runs evaluation on the bounding boxes that have been computed
@@ -16,7 +18,12 @@ def evaluate():
         movie_path = "OutputCsv/" + movie + ".csv"
         detectedFaces, totalFrames = compute_metrics(truth_path, movie_path, movie)
         Accuracy[movie] = detectedFaces/totalFrames
-    print(Accuracy)
+    col_width =  max(len(x) for x in Accuracy.keys())
+    header = [["Movie", "Accuracy"]]
+    pairs = [ [x, Accuracy[x]] for x in Accuracy.keys()]
+    print("-----------------  --------")
+    print("      Movie      | Accuracy")
+    print(tabulate(pairs))
     return Accuracy
 
 def compute_metrics(truth_path, movie_path, movie):

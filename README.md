@@ -72,6 +72,7 @@ This section was added by me (Anirudh). While you are welcome to try setting up 
 5. Install Keras (version 2.2.4) with "pip install keras==2.2.4"
 6. Downgrade numpy to version 1.16.4 if you have a more recent version to avoid deprecated function warnings.
 7. Install matplotlib as I use this for image processing in certain places
+8. Install the tabulate library for evaluation formatting. 
 
 Note that this method is more tedious than the virtual env route. I have updated the necessary versions in the requirements.txt file, so the latter method should also work should you wish to try. I just preder conda. 
 Also note, that the [software requirements](#software-requirements) remain the same, with a GPU required to run the bounding box detection code. Evaluation and data processing scripts can be run on any machine with python3
@@ -123,6 +124,7 @@ unnecessary packages in your system. If you opt for this option, run these comma
 ### Using the model (My version):
 This section was added by me (Anirudh).
 
+Make sure you are on the Master Branch. 
 There are two main executable files that you can run, compute_frames.py and compute_coordinates.py
 
 >**compute_frames.py**
